@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Générateur de Brief SEO</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Inclure le CSS -->
+    <script src="scripts.js" defer></script> <!-- Inclure le JavaScript -->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            justify-content: center; /* Centre verticalement le contenu */
+            align-items: center; /* Centre horizontalement le contenu */
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        label {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #007bff;
+            border: none;
+            color: #fff;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .loading-spinner {
+            display: none; /* Caché par défaut */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 16px solid #f3f3f3;
+            border-top: 16px solid #007bff;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            animation: spin 1s linear infinite;
+               justify-content: center; /* Centre verticalement le contenu */
+            align-items: center; /* Centre horizontalement le contenu */
+            text-align: center;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .footer {
+            margin-top: auto;
+            background-color: #f1f1f1;
+            padding: 10px;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Générateur de Brief</h1>
+    <form id="brief-form" action="generate-brief.php" method="POST">
+        <label for="keyword">Mot-clé principal :</label>
+        <input type="text" id="keyword" name="keyword" required>
+        <button type="submit">Générer le Brief</button>
+    </form>    <h1>En pause</h1>
+
+    <div id="loading-spinner" class="loading-spinner"></div>
+
+    <!-- L'affichage des résultats se fait dans generate-brief.php -->
+
+    <div class="footer">
+        Créé par <a href="https://dev-maxime-guinard.fr/" target="_blank">Maxime GUINARD</a>
+    </div>
+
+    <script>
+        // Afficher le loader lors de la soumission du formulaire
+        document.getElementById('brief-form').addEventListener('submit', function() {
+            document.getElementById('loading-spinner').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
